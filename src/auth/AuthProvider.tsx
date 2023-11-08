@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { useContext, createContext, useState, useEffect } from "react";
 import type { AuthResponse, User } from "../types/types";
 import requestNewAccessToken from "./requestNewAccessToken";
@@ -52,7 +54,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }
 
   function getRefreshToken() {
-    if (!!refreshToken) {
+    if (refreshToken) {
       return refreshToken;
     }
     const token = localStorage.getItem("token");
@@ -85,7 +87,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   async function checkAuth() {
     try {
-      if (!!accessToken) {
+      if (accessToken) {
         //existe access token
         const userInfo = await retrieveUserInfo(accessToken);
         setUser(userInfo);
@@ -156,7 +158,9 @@ async function retrieveUserInfo(accessToken: string) {
       console.log(json);
       return json.body;
     }
-  } catch (error) {}
+  } catch (error) {
+    return error
+  }
 }
 
 export const useAuth = () => useContext(AuthContext);

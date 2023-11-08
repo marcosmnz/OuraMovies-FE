@@ -12,9 +12,11 @@ export interface AuthResponseError {
 }
 
 export interface User {
-  _id: string;
-  name: string;
-  username: string;
+  email?: string;
+  _id?: string;
+  name?: string;
+  username?: string;
+  password?: string;
 }
 
 export interface AccessTokenResponse {

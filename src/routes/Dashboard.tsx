@@ -51,7 +51,9 @@ export default function Dashboard() {
           const todo = (await response.json()) as Todo;
           setTodos([...todos, todo]);
         }
-      } catch (error) {}
+      } catch (error) {
+       return error
+      }
     }
   }
 
