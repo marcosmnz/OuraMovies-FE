@@ -1,7 +1,7 @@
+
+import { API_URL } from "../auth/authConstants";
 import { AuthResponse } from "../types/types";
 import type { AuthResponseError, User } from "../types/types";
-
-
 
 const register = async (name: string, email: string , password: string): Promise<any> => {
     const apiUrl = 'http://localhost:3000/api/signup';
@@ -52,5 +52,23 @@ const login = async (user: User): Promise<any> => {
     console.log(error);
   }
   }
+
+  const signOut = async(authToken: string) => {
+   
+    try {
+      const response = await fetch(`${API_URL}/signout`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+      if (response.ok) {
+        return response.ok
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   
-  export { login, register }
+  export { login, register, signOut }

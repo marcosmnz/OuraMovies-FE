@@ -11,6 +11,7 @@ import ProtectedRoute from "./routes/ProtectedRoute.tsx";
 import Profile from "./routes/Profile.tsx";
 
 import "./index.css";
+import Navbar from "./components/Navbar/Navbar.tsx";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: 
+        <Navbar>
+          <Dashboard />
+          </Navbar>,
       },
       {
         path: "/me",

@@ -28,7 +28,7 @@ export interface SignUpFormViewProps {
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
               className="mx-auto max-h-28 w-auto rounded-full"
-              src="https://placehold.co/200"
+              src="https://ouraring.com/blog/wp-content/uploads/2022/10/Oura-Team-150x150.png"
               alt="PRODIIT"
             />
             <h2 className="mt-10 text-center text-text text-2xl font-bold leading-9 tracking-tight text-gray-900">
